@@ -1,0 +1,154 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+a{ /*파워링크 스타일 초기화및 포인터로 변경*/
+    all:unset ;
+    cursor: pointer;
+}
+
+
+/*해더 부분*/
+
+header{ /*전체 감싸기*/
+    background-color:#fff ;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0px 140px 0px 140px;
+    z-index: 1000;
+}
+.header-container{ /*글씨부분 감싸기*/
+    width:100%;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.header-container-text-h{ /*이미지랑 사이트 이름*/
+    font-size:1.43rem;
+    font-weight: bold;
+    display: flex;
+
+}
+.header-container-text-s{ /*자료출처*/
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+    font-family: 'Gothic A1', sans-serif;
+}
+.header-container-text-s-box{ /*자료 출처를 감싸는 박스*/
+    background-color: #0066ff;
+    border-radius: 4px;
+    width: 130px;
+    height: 44px;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70,0.2);
+    border: 0px 10px 0px 10px;
+    line-height: 44px; /*텍스트가 한줄에 차지하는 크기*/
+    text-align: center;
+    justify-content: center;
+}
+
+
+/* 출처 박스*/
+.source{
+    width: 100%;
+    height: 450px;
+    display:flex;
+    justify-content: center;
+    background-color: #e5e5e5;
+    transition: opacity 0.7s ease; /* 투명도 변화를 부드럽게 만듦 */
+    opacity: 1;
+}
+.source-box {
+    margin: 60px;
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    background-size: cover;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, 0.2);
+    position: relative;
+    overflow: hidden; /* 배경 이미지가 넘칠 경우를 대비해 추가 */
+    opacity: 1;
+    transition: transform 0.4s; /*처넌히 돌아가기*/
+}
+.source-box:hover{
+    transition: transform 0.4s; /*움직이기 철자 조심*/
+    transform: translate(0, -18px); /*위치를 이동 해달라*/
+}
+.source-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(44, 44, 44, 0.5); /* 반투명한 배경 색상 */
+    opacity: 0; /* 기본 투명도를 0으로 설정 */
+    transition: opacity 0.3s ease; /* 투명도 전환 효과를 부드럽게*/
+    z-index: 1;
+}
+.source-box:hover::before { /*마우스를 올렸을시 투명도 조정*/
+    opacity: 1; 
+}
+
+/*마우스를 올렸을시 나오는 글씨*/
+
+.source-box-textBox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex; /* Flexbox로 설정 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    flex-direction: column;
+    z-index: 1000;
+    opacity: 0; /*기본 투명돌르 0으로 설정*/
+    transition: opacity 0.3s ease; /* 투명도 전환 효과를 부드럽게*/
+}
+.source-box-textBox:hover {
+    opacity: 1; /* 마우스를 올렸을 때 투명도를 1로 변경하여 보이도록*/
+}
+.source-box-text-h{
+    margin-top: 100px;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.source-box-text-link{
+    margin: 13px 0px 100px 0px;
+    width: 100px;
+    height: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+}
+h1{
+    background-color: #e5e5e5;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+
+@media screen and (max-width: 700px) {
+    header{
+        padding: 0px 30px 0px 30px;
+    }
+
+}
