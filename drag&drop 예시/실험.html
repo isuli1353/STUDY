@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Drag and Drop</title>
+    <style>
+        body {
+            background-color: #bde0fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            flex-direction: column;
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        .Photo {
+            width: 180px;
+            height: 280px;
+            margin: 10px;
+            padding: 10px;
+            border: solid 15px #8B4513;
+        }
+doe
+        .ar {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>드래그 앤 드롭을 이용한 객체의 이동</h1>
+    <p>모나리자 그림을 드래그해서 옆의 액자로 옮겨보세요</p>
+
+    <div class="ar">
+        <div class="Photo" ondrop="drop(event)" ondragover="dragEnter(event)">
+            <img id="monalisa" width="180" height="280" src="https://tcpschool.com/examples/images/img_monalisa.png" 
+            draggable="true" ondragstart="drag(event)">
+        </div>
+        <div class="Photo" ondrop="drop(event)" ondragover="dragEnter(event)"></div>
+    </div>
+
+    <script>
+        function dragEnter(ev) { //드래그 해서 액자위에 왔을시 드롭을 할수있다는 신호를 줌
+            ev.preventDefault();
+        }
+
+        function drag(ev) { //드래그 되는 개체를 식별하는데 여기서는 id를 사용해서 식별하고있음
+            ev.dataTransfer.setData("text", ev.target.id); 
+        }
+
+        function drop(ev) { //드롭이벤트가 발생하면 드롭이 발생한 개체를 인식하고 해당개체를 드롭된 위치에 추가함
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text"); //img 태그 아이디를 가져옴
+            ev.target.appendChild(document.getElementById(data));
+        }           
+    </script>
+
+</body>
+</html>
+
+
