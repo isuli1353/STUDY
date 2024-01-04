@@ -1,0 +1,255 @@
+*{
+    box-sizing: border-box;
+    /*박스 최대크기 정하기 밖으로 늘려지는걸 안으로 늘려지게*/
+}
+body{
+    margin:0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.inner{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 0 2rem;
+    /* overflow: hidden; 넘치는 부분을 hidden 숨긴다 */
+}
+header{
+    width: 100%;
+    height: 60px;
+    background-color: beige;
+    position: fixed; /*수평 정렬*/
+    top: 0;
+    left: 0;
+    z-index: 1000; /*우선순위 업*/
+}
+
+/*-------------------해더-------------*/
+
+a{
+    all:unset;
+}
+a:link{ /*내가 이 링크에 접속한 적이 없을시*/
+    text-decoration: none; /*text 꾸밈*/
+    color: #8e8d8d;
+}
+a:visited{ /*내가 이링크에 접속한 적이 있을시*/
+    text-decoration: none; /*text 꾸밈*/
+    color: #8e8d8d;
+}
+a:active{ /*클릭했을시*/
+    text-decoration: none;
+    color: #8e8d8d;
+}
+/*위에 3개는 , 로 합쳐서 한개로 만들수있음*/
+a:active{ /*마우스를 올렸을시*/
+    text-decoration: none;
+    color: #2ab1ff;
+}
+.head-container{
+    width: 100%;
+    height: 100%;
+    display: flex; /*수평 정렬*/
+    justify-content: space-between; /*각각 나누기*/
+    align-items: center;
+}
+.head-container .haed-brand{
+    font-weight: bold;
+    font-size: 1.2rem; /*브라우저 설정에 맞게 배율로*/
+}
+.head-container .haed-logo{
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Hi Melody', cursive;
+    color: #8e8d8d;
+}
+.head-container .head-brand a:hover{ /*센터 안에있는 브랜드 안에있는 것에 마우스를 올렸을시*/
+    cursor: pointer; /*포인터 모양으로 바꾸기*/
+}
+
+/*-------------------색션 사진-------------*/
+
+.main{
+    height: 360px;
+    background-image: url(/img/school.jpg);
+    background-size: cover; /*웹브러우저 가로에 맞게 설정*/
+    background-repeat: no-repeat;
+    background-position: 0 30%; /*그림 위치 조정*/
+    margin-top: 60px;
+    z-index: 1; /*우선순위*/
+}
+.main-container{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(67,102,135,0.8); /*색깔 및 투명도*/
+    z-index: 2; /*우선순위*/
+}
+.title-container{
+    padding: 100px 0;
+}
+.title {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0.8rm;
+}
+.message{
+    font-size: 1.4rem;
+    color: white;
+}
+
+/*-------------------색션 선택창-------------*/
+
+.skill-container{
+    background-color: white;
+    display: flex; /*수평 정렬*/
+    justify-content: space-around; /*크기 맞게 넣기*/
+    align-items: center; /*수직정렬*/
+    margin-top: 2rem;
+    padding: 1rem;
+}
+.skill{
+    width: 25%;
+    background-color: white;
+    border-radius: 10px; /*똥글 똥글*/
+    margin: 0 1rem 0.5rem 1rem; /*위 오른쪽 왼쪽 아래*/
+    padding: 0.5rem 1rem; /*글자가 안붙어있 도록 위아래,옆*/
+    display: flex; /*수평정렬*/
+    align-items: center; /*수직정렬*/
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70,0.2); /*왼쪽이동 위로이동 그림자의 번짐정도 그림자의 크기 rgb-0.2는 투명도*/
+    transition: transform 0.4s; /*처넌히 돌아가기*/
+}
+.skill:hover{
+    transition: transform 0.4s; /*움직이기 철자 조심*/
+    transform: translate(0, -18px); /*위치를 이동 해달라*/
+}
+.skill-icon{
+    font-size: 2rem;
+    margin: 0 10px;
+}
+.m-style{
+    color: gold;
+}
+.sw-style{
+    width: 30px;
+}
+.pt-style{
+    color: #6c757d;
+}
+.i-style{
+    color: #ffc8dd;
+}
+.skill-title{
+    display: flex; /*수평정렬*/
+    flex-direction: column;
+    align-content: center; /*컨테이너 전체를 잡아서 수직배열*/
+    margin: 0 0 0.2rem;
+}
+.skill-name{
+    font-weight: bold; /*글자 폰트*/
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+.skill-usage{
+    font-size: 0.7rem;
+}
+
+/*-------------------색션 학교자랑-------------*/
+
+.roadmap-container{
+    width: 100%;
+    margin: 2rem 0;
+}
+.roadmap-title-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.roadmap-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.silde-prev{
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: rgb(67,102,135);
+}
+.silde-next{
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ced4da;
+}
+
+/*-------------------색션 카드-------------*/
+.class-list{
+    display: flex;
+    list-style: none;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.class-card{
+    width: 240px;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70,0.2);
+    border-radius: 10px; 
+    margin: 0 10px; /*좌우로란 뛰우기*/
+    transition: transform 0.4s; /*처넌히 돌아가기*/
+}
+.class-card:hover{
+    transition: transform 0.4s; /*움직이기 철자 조심*/
+    transform: translate(0, -18px); /*위치를 이동 해달라*/
+}
+.class-img{
+    width: 240px;
+    height: 150px;
+    border-radius: 10px 10px 0 0; /*위 위 아래 아래*/
+    object-fit: cover ; /*비율이 이상하기 떄문에 커버에 마춰서 넣기*/
+
+}
+.class-container{ /*밑에 글씨 칸*/
+    width: 100%;
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+.class-skill{
+    display: flex; /*수평 정렬*/ 
+    align-items: center; /*수직 정렬*/
+    justify-content: space-between; /*좌우 배치*/
+    font-size: 0.7rem;
+}
+.class-format{ /*오른쪽위 글씨*/
+    background-color: #2ab1ff;
+    color: #fff;
+    padding: 0.2rem;
+}
+.class-desc{
+    width: 100%;
+    margin-top: 1rem;
+}
+.class-title{
+    font-weight: bold;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden; /*공백 처리*/
+    text-overflow: ellipsis; /*뒤에 ...붙이기*/
+    margin-bottom: 0.2rem;
+}
+
+/*-------------------마지막-------------*/
+.container{
+    width: 100%;
+    height: 80px;
+    background-color: #e9ecef;
+    position: fixed; /*수평 정렬*/
+    left: 0;
+    
+    padding: 1.1rem;
+}
+.font{
+    font-size: 15px;
+}
+
+
+@media screen and (min-width:1100px){
+    .inner{
+        max-width: 1100px;
+    }
+}
